@@ -21,10 +21,7 @@ const KaryawanCard = ({ employee, onUpdate }) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [scaleValue] = useState(new Animated.Value(1));
 
-  const isNew =
-    new Date(employee.tanggal_bergabung) >
-    new Date(new Date().setDate(new Date().getDate() - 30));
-  new Date(employee.tanggal_bergabung).getFullYear() >= 2025;
+  const isNew = new Date(employee.tanggal_bergabung).getFullYear() >= 2025;
 
   const handlePress = () => {
     Animated.sequence([

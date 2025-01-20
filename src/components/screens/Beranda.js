@@ -45,12 +45,11 @@ const Beranda = ({ navigation, route }) => {
       setTotalEmployees(employeeData.length);
 
       const newCount = employeeData.filter((employee) => {
-        const joinDate = new Date(employee.tanggal_bergabung);
-        const joinYear = joinDate.getFullYear();
+        const joinYear = new Date(employee.tanggal_bergabung).getFullYear();
         return joinYear >= 2025;
       }).length;
-      setNewEmployees(newCount);
 
+      setNewEmployees(newCount);
       setLoading(false);
     } catch (error) {
       setLoading(false);

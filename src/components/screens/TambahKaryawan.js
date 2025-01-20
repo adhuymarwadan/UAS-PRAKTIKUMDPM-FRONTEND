@@ -90,12 +90,9 @@ const TambahKaryawan = ({ navigation, route }) => {
       );
       return false;
     }
-    const joinYear = new Date(form.tanggal_bergabung).getFullYear();
-    if (joinYear < 2025) {
-      Alert.alert(
-        "Error",
-        "Tahun bergabung harus 2025 atau setelahnya untuk karyawan baru"
-      );
+    const joinDate = new Date(form.tanggal_bergabung);
+    if (isNaN(joinDate.getTime())) {
+      Alert.alert("Error", "Tanggal tidak valid!");
       return false;
     }
     return true;
